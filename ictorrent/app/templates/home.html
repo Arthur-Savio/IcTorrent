@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'home.css' %}">
+
+<h2>Available Files</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Length</th>
+            <th>Seeders</th>
+            <th>Torrent File</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for file in files %}
+            <td>{{file.id}}</td>
+            <td>{{file.date}}</td>
+            <td>{{file.name}}</td>
+            <td>{{file.length}}</td>
+            <td>{{file.seeders}}</td>
+            <td>
+                <img src="../static/download2.png" style="width: 20px; height: 20px; cursor: pointer;"/>
+            </td>
+            {% endfor %}
+        </tr>
+        <tbody>
+    </table>
+</div>
+<span class='button' style="margin-left: 89%; font-size: 18px; color:white; cursor: pointer;">
+    ADD NEW FILE
+    <!-- <img src="../static/add4.png" style="width: 30px; height: 30px; cursor: pointer;"/> -->
+</span>
+
+{% endblock  %}
